@@ -1,1 +1,3 @@
-#djf'klsdjf'klsj'dfsjfklsjfa'
+name = input("Enter your name please:")
+
+print("Hello " + name + "!")
