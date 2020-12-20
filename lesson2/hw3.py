@@ -1,11 +1,10 @@
-print('Программа калькулятор' )
+
 while True:
     try:
 
         x = float(input('Введите первое значение: '))
         o = input('''Введите оператор " + , - , * ,/ ''')
         y = float(input('Введите второе значение: '))
-        r = input('Введите " = " ')
 
     except ValueError:
         print("Некоректно введено значение, повторите попытку")
@@ -14,7 +13,7 @@ while True:
     
     if o == '+':
         print('{} + {} = '.format(x, y))
-        print(x + y)
+        solve = (x + y)
         break
     elif o =='++':
         print('Ошибка ввода оператора')
@@ -23,7 +22,7 @@ while True:
     
     elif o == '-':
         print('{} - {} = '.format(x, y))
-        print(x - y)
+        solve = (x - y)
         break
     elif o == '--':
         print('Ошибка ввода оператора')
@@ -32,7 +31,7 @@ while True:
    
     elif o == '*':
         print('{} * {} = '.format(x, y))
-        print(x * y)
+        solve = (x * y)
         break
     elif o =='**':
         print('Ошибка ввода оператора')
@@ -42,19 +41,18 @@ while True:
     elif o == '/':
         try:
             print('{} / {} = '.format(x, y))
-            print(x / y)
+            solve = (x / y)
             break
         except ZeroDivisionError:
             print("Деление на ноль запрещено!")
-        break
+        exit
 
     elif o == '//':
         print('Ошибка ввода оператора')
         break
-    else:
-        print('''Что то пошло не так как нужно! 
-        Перепроверьте правильность ввода''')
-        break
-
-
- 
+q = input("Введите знак равенства: ")    
+if q == "=":
+    print(f"Результат будет {solve}")
+else:
+        print('''Что то пошло не так как нужно!Перепроверьте правильность ввода''')
+        exit
