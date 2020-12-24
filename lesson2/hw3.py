@@ -1,58 +1,31 @@
 
-while True:
+r = 0
+o = None
+while o != "=":
     try:
-
-        x = float(input('Введите первое значение: '))
-        o = input('''Введите оператор " + , - , * ,/ ''')
-        y = float(input('Введите второе значение: '))
-
+        x = input("Введите число: ")
+        y = float(x)
     except ValueError:
-        print("Некоректно введено значение, повторите попытку")
-        break
-
-    
-    if o == '+':
-        print('{} + {} = '.format(x, y))
-        solve = (x + y)
-        break
-    elif o =='++':
-        print('Ошибка ввода оператора')
-        break
-
-    
-    elif o == '-':
-        print('{} - {} = '.format(x, y))
-        solve = (x - y)
-        break
-    elif o == '--':
-        print('Ошибка ввода оператора')
-        break
-
-   
-    elif o == '*':
-        print('{} * {} = '.format(x, y))
-        solve = (x * y)
-        break
-    elif o =='**':
-        print('Ошибка ввода оператора')
-        break
-
-   
-    elif o == '/':
+        print("Ошибка ввода")
+        continue
+    if o == None:
+        r = y
+    elif o == "+":
+        r += y
+    elif o == "-":
+        r -= y
+    elif o == "*":
+        r *= y
+    elif o == "/":
         try:
-            print('{} / {} = '.format(x, y))
-            solve = (x / y)
-            break
+            r /= y
         except ZeroDivisionError:
-            print("Деление на ноль запрещено!")
-        exit
-
-    elif o == '//':
-        print('Ошибка ввода оператора')
-        break
-q = input("Введите знак равенства: ")    
-if q == "=":
-    print(f"{solve}")
-else:
-        print('''Что то пошло не так как нужно!Перепроверьте правильность ввода''')
-        exit
+            print("На ноль делить нельзя")
+            continue
+    o = input("Введите операотр: ")
+    while o not in ('+', "-", '*', '/', '='):
+        print("Ошибка ввода оператора")
+        o = input("Введите оператор: ")
+    if o == "=":
+        continue
+print(f' {r} ')
