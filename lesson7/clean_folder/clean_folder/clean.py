@@ -1,5 +1,6 @@
 import os
 import shutil
+import sys
 
 GENERAL = ''
 
@@ -95,10 +96,18 @@ def grabPath(path, nestingDeep=0):
 
 
 def main():
-
-    global GENERAL
-    GENERAL = r'D:/junk/'
     grabPath(r'D:/junk/')
+
+
+def clean():
+    global GENERAL
+    if len(sys.argv) == 1:
+        GENERAL = os.getcwd()
+        grabPath(GENERAL)
+    else:
+        GENERAL = sys.argv[1]
+        grabPath(GENERAL)
+
 
 
 if __name__ == '__main__':

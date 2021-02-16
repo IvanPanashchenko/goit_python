@@ -1,7 +1,6 @@
 from setuptools import setup, find_namespace_packages
 
 setup (
-    name='clean_folder',
     version='1.0.0',
     description='Script for sorted files',
     license= No License,
